@@ -1,6 +1,7 @@
 {
   "name": "practice",
   "version": "0.1.0",
+  "homepage": "https://sokra.github.io/v2"
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",

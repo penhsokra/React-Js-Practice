@@ -32,7 +32,6 @@ import {
   Radio,
   TextField,
 } from '@mui/material';
-import IconTextField from '../IconTextField/IconTextField';
 import { padding } from '@mui/system';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -44,6 +43,7 @@ export default function AddCourseDialog(props) {
     <div>
       <Dialog
         open={open}
+        style={{ zIndex: 999 }}
         TransitionComponent={Transition}
         keepMounted
         onClose={props.onClose}
@@ -52,7 +52,7 @@ export default function AddCourseDialog(props) {
         <AppBar sx={{ position: 'relative' }}>
           <Toolbar>
             <Typography sx={{ flex: 1 }} variant='h6' component='div'>
-              ADD NEW COURSE
+              COURSE FORM
             </Typography>
             <IconButton
               edge='start'
@@ -72,6 +72,7 @@ export default function AddCourseDialog(props) {
                   <TextField
                     label='COURSE NAME'
                     name='COURSENAME'
+                    value={props.ccname}
                     onChange={props.onChange}
                     style={{ width: '100%' }}
                   />
@@ -80,6 +81,8 @@ export default function AddCourseDialog(props) {
                   <TextField
                     label='PRICE'
                     name='PRICE'
+                    value={props.price}
+                    type='number'
                     onChange={props.onChange}
                     style={{ width: '100%' }}
                   />
@@ -88,6 +91,7 @@ export default function AddCourseDialog(props) {
                   <TextField
                     label='DESCRITION'
                     name='DESCRITION'
+                    value={props.des}
                     onChange={props.onChange}
                     style={{ width: '100%' }}
                   />
@@ -97,6 +101,7 @@ export default function AddCourseDialog(props) {
                     row
                     aria-labelledby='demo-row-radio-buttons-group-label'
                     name='STATUS'
+                    value={props.st}
                     onChange={props.onChange}
                   >
                     <FormControlLabel
@@ -121,7 +126,7 @@ export default function AddCourseDialog(props) {
                         size='large'
                         style={{ width: '100%' }}
                       >
-                        ADD
+                        SUBMIT
                       </Button>
                     </Grid>
                   </Grid>

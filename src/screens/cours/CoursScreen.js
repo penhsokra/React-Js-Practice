@@ -16,6 +16,8 @@ import {
   create,
 } from '../../controllers/CoursController';
 import AddCourseDialog from '../../commponents/dialog/AddCourseDialog';
+import ConfirmDialog from '../../commponents/dialog/ConfirmDialog';
+import BasicAlerts from '../../commponents/alert/BasicAlerts';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -48,28 +50,31 @@ const Item = styled(Paper)(({ theme }) => ({
 function CoursScreen() {
   const [loading, setLoading] = React.useState(true);
   const [isAddNew, setIsAddNew] = React.useState(false);
+  const [confirm, setConfirm] = React.useState(false);
   const [body, setBody] = React.useState([]);
   const [rows, setRows] = React.useState([]);
   const [cName, setCName] = React.useState('');
   const [cPrice, setCPrice] = React.useState('');
   const [cDescription, setCDescription] = React.useState('');
+  const [getId, setGetId] = React.useState('');
   const [cStatus, setCStatus] = React.useState('');
-
+  const [confirmRest, setConfirmRest] = React.useState(false);
+  const [message, setMessage] = React.useState('');
+  const [checkEvt, setCheckEvt] = React.useState(true);
   React.useEffect(() => {
     getCours();
   }, []);
   const handleClose = () => {
     setLoading(false);
     setIsAddNew(false);
-  };
-  const handleToggle = () => {
-    setLoading(!loading);
+    setConfirm(false);
   };
 
   const getCours = () => {
     list()
       .then((res) => {
         var lists = res.data.data;
+        console.log(lists);
         if (lists.length > 0) {
           setRows(lists);
         }
@@ -85,29 +90,101 @@ function CoursScreen() {
     setLoading(true);
     create(data)
       .then((res) => {
-        alert('Add Course Success');
-        setIsAddNew(false);
+        setConfirmRest(true);
+        if (res.data.message === 'Insert success!') {
+          setMessage('Congratulations ' + res.data.message);
+          setIsAddNew(false);
+          getCours();
+        } else {
+          setMessage('Insert Error !');
+        }
+        setTimeout(function () {
+          setConfirmRest(false);
+        }, 3000);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
-      })
-      .then(() => {
-        getCours();
         setLoading(false);
+        setConfirmRest(false);
       });
   };
+  const remove = (id) => {
+    setLoading(true);
+    deletes(id)
+      .then((res) => {
+        setConfirmRest(true);
+        if (res.data.message === 'Delete success!') {
+          setMessage('Congratulations ' + res.data.message);
+          getCours();
+        } else {
+          setMessage('Delete Error !');
+        }
+        setConfirm(false);
+        setLoading(false);
+        setTimeout(function () {
+          setConfirmRest(false);
+        }, 3000);
+      })
+      .catch((err) => {
+        console.log(err);
+        setConfirm(false);
+        setLoading(false);
+        setConfirmRest(false);
+      });
+  };
+
+  const updates = (data) => {
+    setLoading(true);
+    update(data)
+      .then((res) => {
+        setConfirmRest(true);
+        console.log(res);
+        if (res.data.message === 'Update success!') {
+          setMessage('Congratulations ' + res.data.message);
+          setIsAddNew(false);
+          getCours();
+        } else {
+          setMessage('Update Error !');
+        }
+        setTimeout(function () {
+          setConfirmRest(false);
+        }, 3000);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+        setConfirmRest(false);
+      });
+  };
+
   return (
     <div className='mgb20'>
+      <BasicAlerts open={confirmRest} message={message} />
+      <LoadingCommponent open={loading} handleClose={handleClose} />
+      <ConfirmDialog
+        open={confirm}
+        close={handleClose}
+        onDelete={() => remove(getId)}
+      />
       <AddCourseDialog
         open={isAddNew}
+        ccname={cName}
+        price={cPrice}
+        des={cPrice}
+        st={cStatus}
         onAdd={() => {
           var data = {
+            course_id: getId,
             name: cName,
             price: cPrice,
             description: cDescription,
             status: cStatus,
           };
-          createCours(data);
+          {
+            checkEvt ? createCours(data) : updates(data);
+          }
         }}
         onChange={(e) => {
           if (e.target.name === 'COURSENAME') {
@@ -142,7 +219,9 @@ function CoursScreen() {
                 <Button
                   onClick={() => {
                     setIsAddNew(true);
+                    setCheckEvt(true);
                   }}
+                  name='ADDNEW'
                   variant='contained'
                   color='success'
                   style={{ width: 149 }}
@@ -167,6 +246,15 @@ function CoursScreen() {
                 </StyledTableCell>
                 <StyledTableCell align='right'>
                   <Button
+                    onClick={() => {
+                      setCheckEvt(false);
+                      setIsAddNew(true);
+                      setCName(row.name);
+                      setCPrice(row.price);
+                      setCDescription(row.description);
+                      setCStatus(row.status);
+                    }}
+                    name='UPDATE'
                     className='btn'
                     variant='outlined'
                     color='secondary'
@@ -176,6 +264,10 @@ function CoursScreen() {
                   </Button>
                   <Button
                     className='btn'
+                    onClick={() => {
+                      setConfirm(true);
+                      setGetId(row.course_id);
+                    }}
                     style={{ marginLeft: 10 }}
                     variant='outlined'
                     color='error'

@@ -6,40 +6,23 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function ConfirmDialog() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+export default function ConfirmDialog(props) {
   return (
     <div>
-      <Button variant='outlined' onClick={handleClickOpen}>
-        Open alert dialog
-      </Button>
       <Dialog
-        open={open}
-        onClose={handleClose}
+        open={props.open}
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'
       >
-        <DialogTitle id='alert-dialog-title'>
-          {"Use Google's location service?"}
-        </DialogTitle>
+        <DialogTitle id='alert-dialog-title'>{'Confirmation'}</DialogTitle>
         <DialogContent>
           <DialogContentText id='alert-dialog-description'>
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
+            Do you want to delete this record ?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
+          <Button onClick={props.close}>Disagree</Button>
+          <Button onClick={props.onDelete} autoFocus>
             Agree
           </Button>
         </DialogActions>

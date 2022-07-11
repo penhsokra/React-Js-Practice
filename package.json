@@ -1,7 +1,6 @@
 {
   "name": "practice",
   "version": "0.1.0",
-  "homepage": "https://penhsokra.github.io/React-Js-Practice"
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",

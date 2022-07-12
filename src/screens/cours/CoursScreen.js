@@ -74,7 +74,7 @@ function CoursScreen() {
     list()
       .then((res) => {
         var lists = res.data.data;
-        console.log(lists);
+        //console.log(lists);
         if (lists.length > 0) {
           setRows(lists);
         }
@@ -160,7 +160,7 @@ function CoursScreen() {
   };
 
   return (
-    <div className='mgb20'>
+    <div>
       <BasicAlerts open={confirmRest} message={message} />
       <LoadingCommponent open={loading} handleClose={handleClose} />
       <ConfirmDialog
@@ -172,7 +172,7 @@ function CoursScreen() {
         open={isAddNew}
         ccname={cName}
         price={cPrice}
-        des={cPrice}
+        des={cDescription}
         st={cStatus}
         onAdd={() => {
           var data = {
@@ -199,7 +199,7 @@ function CoursScreen() {
         }}
         onClose={handleClose}
       />
-      <TableContainer className='mgt10' component={Paper}>
+      <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
             <TableRow style={{ padding: 0 }}>
@@ -253,6 +253,7 @@ function CoursScreen() {
                       setCPrice(row.price);
                       setCDescription(row.description);
                       setCStatus(row.status);
+                      setGetId(row.course_id);
                     }}
                     name='UPDATE'
                     className='btn'

@@ -9,6 +9,7 @@ import LoginScreen from './screens/login/LoginScreen';
 import StudentScreen from './screens/student/StudentScreen';
 import CoursScreen from './screens/cours/CoursScreen';
 import RegisterScreen from './screens/register/RegisterScreen';
+import TeacherScreen from './screens/teacher/TeacherScreen';
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
               <Route path='/student' element={<StudentScreen />} />
               <Route path='/cours' element={<CoursScreen />} />
               <Route path='/register' element={<RegisterScreen />} />
+              <Route path='/teacher' element={<TeacherScreen />} />
               <Route path='/login' element={<LoginScreen />} />
             </Routes>
           </Box>

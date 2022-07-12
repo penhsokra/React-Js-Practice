@@ -6,7 +6,7 @@ export default function BasicAlerts(props) {
   return (
     <Stack spacing={2} sx={{ width: '100%' }}>
       <Snackbar
-        style={{ top: '20%' }}
+        style={{ top: '25%' }}
         open={props.open}
         autoHideDuration={3000}
         anchorOrigin={{

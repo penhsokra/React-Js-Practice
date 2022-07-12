@@ -53,7 +53,7 @@ export default function DrawerAppBar(props: Props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', marginBottom: 3 }}>
       <AppBar component='nav'>
         <Container>
           <Toolbar disableGutters>
@@ -87,12 +87,16 @@ export default function DrawerAppBar(props: Props) {
                 Cours
               </Button>
               <Button
-                onClick={() => navigate('/register')}
+                onClick={() => navigate('/teacher')}
                 sx={{ color: '#fff' }}
               >
-                Register
+                Teacher
               </Button>
-              <Button onClick={() => navigate('/login')} sx={{ color: '#fff' }}>
+              <Button
+                style={{ marginLeft: 50 }}
+                onClick={() => navigate('/login')}
+                sx={{ color: '#fff' }}
+              >
                 Login
               </Button>
             </Box>

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import service from '../../service/service';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
 function AuthScreen() {
+  let navigate = useNavigate();
   const [loginMessage, setLoginMessage] = useState('');
   const [registerMessage, setRegisterMessage] = useState('');
   const [show, setShow] = useState(false);
@@ -55,6 +57,7 @@ function AuthScreen() {
         }
         setLoginMessage(text);
       } else {
+        navigate('/home');
       }
     });
   };
@@ -71,27 +74,27 @@ function AuthScreen() {
       <div className={show ? 'loading' : 'loading hide'}>
         <svg width='100' height='100' viewBox='0 0 100 100'>
           <polyline
-            class='line-cornered stroke-still'
+            className='line-cornered stroke-still'
             points='0,0 100,0 100,100'
-            stroke-width='10'
+            strokeWidth='10'
             fill='none'
           ></polyline>
           <polyline
-            class='line-cornered stroke-still'
+            className='line-cornered stroke-still'
             points='0,0 0,100 100,100'
-            stroke-width='10'
+            strokeWidth='10'
             fill='none'
           ></polyline>
           <polyline
-            class='line-cornered stroke-animation'
+            className='line-cornered stroke-animation'
             points='0,0 100,0 100,100'
-            stroke-width='10'
+            strokeWidth='10'
             fill='none'
           ></polyline>
           <polyline
-            class='line-cornered stroke-animation'
+            className='line-cornered stroke-animation'
             points='0,0 0,100 100,100'
-            stroke-width='10'
+            strokeWidth='10'
             fill='none'
           ></polyline>
         </svg>
@@ -164,7 +167,7 @@ function AuthScreen() {
               type='text'
               name='username'
               onChange={(e) => handleValueChanges(e)}
-              placeholder='username'
+              placeholder='Username'
               autoComplete='none'
             />
             <input

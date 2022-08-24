@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Outlet } from 'react-router-dom';
 import './Layout.css';
 function Layout() {
   return (
@@ -22,7 +22,9 @@ function Layout() {
             </li>
           </ul>
         </div>
-        <div className='item3'>Content</div>
+        <div className='item3'>
+           <Outlet />
+        </div>
       </div>
     </div>
   );

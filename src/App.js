@@ -7,15 +7,13 @@ import Course from './screens/course/Course.screen';
 import Layout from './screens/layout/Layout.screen';
 function App() {
   return (
-    <div className='App'>
       <Routes>
-        <Route index element={<AuthScreen />}></Route>
-        <Route path='/home' element={<Layout />} />
-        <Route path='/Auth' element={<AuthScreen />} />
-        <Route path='/course' element={<Course />} />
-        <Route path='/category' element={<Category />} />
+        <Route path="/" element={<Layout />}>
+          <Route path='/Auth' element={<AuthScreen />} />
+          <Route path='/course' element={<Course />} />
+          <Route path='/category' element={<Category />} />
+        </Route>
       </Routes>
-    </div>
   );
 }
 export default App;

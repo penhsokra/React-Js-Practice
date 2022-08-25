@@ -56,7 +56,7 @@ function Course() {
     <colgroup>
       <col style={{width:50}}/>
       <col/>
-      <col style={{width:50}}/>
+      <col/>
       <col/>
       <col style={{width:80}}/>
       <col style={{width:100}}/>

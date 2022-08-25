@@ -53,6 +53,14 @@ function Course() {
       </div>
 
     <table>
+    <colgroup>
+      <col style="width:50px">
+      <col style="width:">
+      <col style="width:">
+      <col style="width:">
+      <col style="width:80px">
+      <col style="width:100px">
+    </colgroup>
       <thead>
         <tr>
           <th>NO</th>

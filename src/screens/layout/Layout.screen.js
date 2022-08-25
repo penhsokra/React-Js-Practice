@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Layout.css';
 function Layout() {
   let navigate = useNavigate();
-  const [isLogin,setIslogin] = useState(localStorage.get("islogin"));
+  const [isLogin,setIslogin] = useState(localStorage.getItem("islogin"));
   useEffect(() => {
     if(!isLogin){
       navigate('/auth');

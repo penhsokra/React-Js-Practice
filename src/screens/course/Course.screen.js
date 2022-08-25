@@ -55,7 +55,7 @@ function Course() {
               </tr>
             )
           })
-          : (<tr key={i}>
+          : (<tr>
           <td rowspan="5" style={{textAlign:"center"}}>Something wrong !</td></tr>)
         }
       </tbody>

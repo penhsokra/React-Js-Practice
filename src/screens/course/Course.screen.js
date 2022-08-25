@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Course.css';
 function Course() {
   const [show, setShow] = useState(false);
-
+  const [data, setData] = useState('');
 
   useEffect(() => {
     getCourse();
@@ -17,11 +17,11 @@ function Course() {
     setLoginMessage('');
     service('POST', '/api/course', {}).then(function (response) {
       setShow(false);
-      console.log(response.message);
+      console.log(response);
       if (response.error) {
 
       } else {
-
+        setData(response);
       }
     });
   };
@@ -65,7 +65,7 @@ function Course() {
           <th>INCH</th>
           <th>BOX TYPE</th>
         </tr>
-      <thead>
+      </thead>
       <tbody>
         <tr>
           <td>CES-9000</td>
@@ -75,7 +75,7 @@ function Course() {
           <td>Kangal / Coil</td>
           </tr>
       </tbody>
-    <table/>
+    </table>
 
     </div>
   );

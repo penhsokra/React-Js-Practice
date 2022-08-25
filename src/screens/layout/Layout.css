@@ -40,7 +40,7 @@
   border-radius: 100%;
 }
 .profile a{
-  background: url(/static/media/logout.ec8b984….png) 50% 50% no-repeat;
+  background: url('./logout.png') 50% 50% no-repeat;
   background-size: 30px;
   border-radius: 60px;
   display: block;

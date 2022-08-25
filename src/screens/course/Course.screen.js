@@ -13,13 +13,11 @@ function Course() {
 
   const getCourse = (event, user) => {
     setShow(true);
-    service('POST', '/api/course', {}).then(function (response) {
+    service('GET', '/api/course', {}).then(function (response) {
       setShow(false);
       console.log(response);
-      if (response.error) {
-
-      } else {
-        setData(response);
+      if(!response.error) {
+        setData(response.category);
       }
     });
   };
@@ -57,21 +55,29 @@ function Course() {
     <table>
       <thead>
         <tr>
-          <th>CODE</th>
-          <th>STOCK</th>
-          <th>CAP</th>
-          <th>INCH</th>
-          <th>BOX TYPE</th>
+          <th>NO</th>
+          <th>NAME</th>
+          <th>PARENT</th>
+          <th>IMAGE</th>
+          <th>STATUS</th>
+          <th>ACTION</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>CES-9000</td>
-          <td>50mt</td>
-          <td>9mm</td>
-          <td>1/2"</td>
-          <td>Kangal / Coil</td>
-          </tr>
+        {
+          data.map((a,i)=>{
+            return (
+              <tr key={i}>
+                <td>{i+1}</td>
+                <td>{a.name}</td>
+                <td>{a.parent}</td>
+                <td>{a.image}</td>
+                <td>{a.status}</td>
+                <td>xxxxx</td>
+              </tr>
+            )
+          })
+        }
       </tbody>
     </table>
 

@@ -26,7 +26,6 @@ function Layout() {
             </div>
             <div className="team-content">
               <h3 className="name">Michele Miller</h3>
-              <h4 className="title">Web Developer</h4>
             </div>
           </div>
           <ul>

@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Auth.css';
 function AuthScreen() {
   let navigate = useNavigate();
-  const [isLogin,setIslogin] = useState(localStorage.getItem("islogin"));
+  const [isLogin, setIslogin] = useState(localStorage.getItem('islogin'));
   const [loginMessage, setLoginMessage] = useState('');
   const [registerMessage, setRegisterMessage] = useState('');
   const [show, setShow] = useState(false);
@@ -22,8 +22,8 @@ function AuthScreen() {
   };
 
   useEffect(() => {
-    if(isLogin){
-      navigate('/');
+    if (isLogin) {
+      navigate('/category');
     }
     formControll();
   }, []);
@@ -61,8 +61,8 @@ function AuthScreen() {
         }
         setLoginMessage(text);
       } else {
-        localStorage.setItem("islogin",true);
-        navigate('/');
+        localStorage.setItem('islogin', true);
+        navigate('/category');
       }
     });
   };

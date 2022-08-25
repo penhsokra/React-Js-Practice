@@ -14,7 +14,6 @@ function Course() {
   const getCourse = (event, user) => {
     setShow(true);
     event.preventDefault();
-    setLoginMessage('');
     service('POST', '/api/course', {}).then(function (response) {
       setShow(false);
       console.log(response);

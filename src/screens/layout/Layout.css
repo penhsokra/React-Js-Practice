@@ -41,3 +41,5 @@
   border: 1px solid #ccc;
   border-radius: 100%;
 }
+ul,li{padding: 0;list-style: none;}
+.item2 ul li a{color:#009cff;font-family: "Heebo",sans-serif;font-size: 1rem;padding: 7px 20px;font-weight: 500;line-height: 1.5;}

@@ -21,6 +21,22 @@ function Course() {
       }
     });
   };
+  const deleteCourse = async (event, category_id) => {
+    let text = "Do you want to delete this record ?";
+    if (window.confirm(text) == true) {
+      setShow(true);
+      await service('DELETE', '/api/course', {"category_id":category_id}).then(function (response) {
+        setShow(false);
+        console.log(response);
+        if (!response.error) {
+          getCourse();
+          alert("Delete Success !");
+        }else{
+          alert("Delete Fail !");
+        }
+      });
+    } 
+  };
   return (
     <div className=''>
       {/* <span class="loader"></span> */}
@@ -57,7 +73,7 @@ function Course() {
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
                     <button className='button button2'>UPDATE</button>
-                    <button className='button button3'>DELETE</button>
+                    <button className='button button3' onClick={(e)=>deleteCourse(e,a.category_id)}>DELETE</button>
                   </td>
                 </tr>
               );

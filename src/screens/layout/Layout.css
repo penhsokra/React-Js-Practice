@@ -41,6 +41,7 @@
   background-color: antiquewhite;
 }
 .profile:hover{
+  border: 1px solid #ccc;
   background-color:white;
 }
 .profile a{

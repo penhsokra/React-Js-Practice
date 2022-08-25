@@ -73,6 +73,7 @@ function Course() {
           <td>9mm</td>
           <td>1/2"</td>
           <td>Kangal / Coil</td>
+          </tr>
       </tbody>
     <table/>
 

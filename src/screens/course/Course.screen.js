@@ -23,7 +23,7 @@ function Course() {
   };
   return (
     <div className=''>
-      <div class="loader hide"></div>
+      <div className={show ? 'loader' : 'loader hide'}></div>
     <table>
     <colgroup>
       <col style={{width:50}}/>

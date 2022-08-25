@@ -22,7 +22,7 @@ function Course() {
     });
   };
   return (
-    <div className='auth_wrap'>
+    <div className=''>
       <div className={show ? 'loading' : 'loading hide'}>
         <svg width='100' height='100' viewBox='0 0 100 100'>
           <polyline

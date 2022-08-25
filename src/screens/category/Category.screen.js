@@ -23,7 +23,7 @@ function Category() {
   };
   const deleteCourse = async (event, category_id) => {
     let text = "Do you want to delete this record ?";
-    if (confirm(text) == true) {
+    if (window.confirm(text) == true) {
       setShow(true);
       await service('DELETE', '/api/category', {"category_id":category_id}).then(function (response) {
         setShow(false);

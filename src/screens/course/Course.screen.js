@@ -11,9 +11,9 @@ function Course() {
     getCourse();
   }, []);
 
-  const getCourse = (event, user) => {
+  const getCourse = async (event, user) => {
     setShow(true);
-    service('GET', '/api/course', {}).then(function (response) {
+    await service('GET', '/api/course', {}).then(function (response) {
       setShow(false);
       console.log(response);
       if(!response.error) {

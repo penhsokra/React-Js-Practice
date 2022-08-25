@@ -29,11 +29,11 @@ function Layout() {
             </div>
           </div>
           <ul>
-            <li>
-              <Link to='/course'>COURSE</Link>
+          <li>
+              <Link to='/category'>CATEGORY</Link>
             </li>
             <li>
-              <Link to='/category'>CATEGORY</Link>
+              <Link to='/course'>COURSE</Link>
             </li>
           </ul>
         </div>

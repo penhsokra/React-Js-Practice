@@ -23,6 +23,7 @@ function Course() {
   };
   return (
     <div className=''>
+      <span class="loader"></span>
       <div className={show ? 'loader' : 'loader hide'}></div>
     <table>
     <colgroup>
@@ -54,7 +55,7 @@ function Course() {
               </tr>
             )
           })
-          :""
+          :"Something wrong !"
         }
       </tbody>
     </table>

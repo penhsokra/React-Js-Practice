@@ -11,17 +11,16 @@
 }
 .item3 {
   grid-area: main;
+  padding: 25px;
 }
 .grid-container {
   display: grid;
   height: 100vh;
-
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: 80px 1fr;
   grid-template-areas:
     'header header'
     'menu main';
-  gap: 0 20px;
 }
 .heaer_inner {
   display: flex;

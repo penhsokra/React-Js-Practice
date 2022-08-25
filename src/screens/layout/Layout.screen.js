@@ -25,7 +25,7 @@ function Layout() {
               <img className="img-fluid" src="https://picsum.photos/130/130?image=1027"/>
             </div>
             <div className="team-content">
-              <h3 className="name">Michele Miller</h3>
+              <h3 className="name">Admin</h3>
             </div>
           </div>
           <ul>

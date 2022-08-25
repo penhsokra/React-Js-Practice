@@ -5,6 +5,7 @@ import axios from 'axios';
 import './Auth.css';
 function AuthScreen() {
   let navigate = useNavigate();
+  const [isLogin,setIslogin] = useState(localStorage.getItem("islogin"));
   const [loginMessage, setLoginMessage] = useState('');
   const [registerMessage, setRegisterMessage] = useState('');
   const [show, setShow] = useState(false);
@@ -21,7 +22,6 @@ function AuthScreen() {
   };
 
   useEffect(() => {
-    const [isLogin,setIslogin] = useState(localStorage.getItem("islogin"));
     if(!isLogin){
       navigate('/');
     }

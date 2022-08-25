@@ -21,6 +21,19 @@ function Category() {
       }
     });
   };
+  const deleteCourse = async (event, category_id) => {
+    setShow(true);
+    await service('DELETE', '/api/category', {"category_id":category_id}).then(function (response) {
+      setShow(false);
+      console.log(response);
+      if (!response.error) {
+        getCourse();
+        alert("Delete Success !");
+      }else{
+        alert("Delete Fail !");
+      }
+    });
+  };
   return (
     <div className=''>
       {/* <span class="loader"></span> */}
@@ -57,7 +70,7 @@ function Category() {
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
                     <button className='button button2'>UPDATE</button>
-                    <button className='button button3'>DELETE</button>
+                    <button className='button button3' onClick={(e)=>deleteCourse(e,a.category_id)}>DELETE</button>
                   </td>
                 </tr>
               );

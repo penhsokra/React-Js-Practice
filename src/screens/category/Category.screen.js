@@ -22,17 +22,20 @@ function Category() {
     });
   };
   const deleteCourse = async (event, category_id) => {
-    setShow(true);
-    await service('DELETE', '/api/category', {"category_id":category_id}).then(function (response) {
-      setShow(false);
-      console.log(response);
-      if (!response.error) {
-        getCourse();
-        alert("Delete Success !");
-      }else{
-        alert("Delete Fail !");
-      }
-    });
+    let text = "Do you want to delete this record ?";
+    if (confirm(text) == true) {
+      setShow(true);
+      await service('DELETE', '/api/category', {"category_id":category_id}).then(function (response) {
+        setShow(false);
+        console.log(response);
+        if (!response.error) {
+          getCourse();
+          alert("Delete Success !");
+        }else{
+          alert("Delete Fail !");
+        }
+      });
+    } 
   };
   return (
     <div className=''>

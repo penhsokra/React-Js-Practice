@@ -20,13 +20,13 @@ function Layout() {
           </div>
         </div>
         <div className='item2'>
-          <div class="our-team">
-            <div class="picture">
-              <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+          <div className="our-team">
+            <div className="picture">
+              <img className="img-fluid" src="https://picsum.photos/130/130?image=1027">
             </div>
-            <div class="team-content">
-              <h3 class="name">Michele Miller</h3>
-              <h4 class="title">Web Developer</h4>
+            <div className="team-content">
+              <h3 className="name">Michele Miller</h3>
+              <h4 className="title">Web Developer</h4>
             </div>
           </div>
           <ul>

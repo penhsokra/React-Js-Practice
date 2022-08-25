@@ -58,7 +58,7 @@ function AuthScreen() {
         setLoginMessage(text);
       } else {
         localStorage.setItem("islogin",true);
-        navigate('/home');
+        navigate('/');
       }
     });
   };

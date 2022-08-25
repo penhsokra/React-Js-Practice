@@ -22,7 +22,7 @@ function Layout() {
         <div className='item2'>
           <div className="our-team">
             <div className="picture">
-              <img className="img-fluid" src="https://picsum.photos/130/130?image=1027">
+              <img className="img-fluid" src="https://picsum.photos/130/130?image=1027"/>
             </div>
             <div className="team-content">
               <h3 className="name">Michele Miller</h3>

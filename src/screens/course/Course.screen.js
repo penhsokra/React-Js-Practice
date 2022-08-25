@@ -60,7 +60,7 @@ function Course() {
             })
           ) : (
             <tr>
-              <td rowspan='5' style={{ textAlign: 'center' }}>
+              <td rowspan='5' style={{ textAlign: 'center',color:"red" }}>
                 Something wrong !
               </td>
             </tr>

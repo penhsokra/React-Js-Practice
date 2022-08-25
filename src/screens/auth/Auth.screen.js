@@ -22,7 +22,7 @@ function AuthScreen() {
   };
 
   useEffect(() => {
-    if(!isLogin){
+    if(isLogin){
       navigate('/');
     }
     formControll();

@@ -227,7 +227,7 @@ tbody tr:last-of-type {
 
 
 
-  .loader {
+  /* .loader {
     width: 48px;
     height: 48px;
     display: inline-block;
@@ -253,4 +253,4 @@ tbody tr:last-of-type {
   }
    @keyframes rotate {
     100%{    transform: rotate(360deg)}
-  }
+  } */

@@ -23,7 +23,7 @@ function Course() {
   };
   return (
     <div className=''>
-      <span class="loader"></span>
+      {/* <span class="loader"></span> */}
       <div className={show ? 'loader' : 'loader hide'}></div>
     <table>
     <colgroup>
@@ -55,7 +55,8 @@ function Course() {
               </tr>
             )
           })
-          :"Something wrong !"
+          : (<tr key={i}>
+          <td rowspan="5" style={{textAlign:"center"}}>Something wrong !</td></tr>)
         }
       </tbody>
     </table>

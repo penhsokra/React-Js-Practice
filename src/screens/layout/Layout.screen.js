@@ -12,7 +12,6 @@ function Layout() {
           </div>
         </div>
         <div className='item2'>
-          <h1>Testing......</h1>
           <ul>
             <li>
               <Link to='/course'>COURSE</Link>

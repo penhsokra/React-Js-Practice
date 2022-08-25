@@ -5,11 +5,11 @@ import './Layout.css';
 function Layout() {
   let navigate = useNavigate();
   const [isLogin,setIslogin] = useState(localStorage.get("islogin"));
-  useEffect(()=>{
-    (!isLogin){
+  useEffect(() => {
+    if(!isLogin){
       navigate('/auth');
     }
-  },[]);
+  }, []);
   return (
     <div>
       <div className='grid-container'>

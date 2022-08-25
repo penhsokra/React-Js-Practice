@@ -21,6 +21,10 @@ function AuthScreen() {
   };
 
   useEffect(() => {
+    const [isLogin,setIslogin] = useState(localStorage.getItem("islogin"));
+    if(!isLogin){
+      navigate('/');
+    }
     formControll();
   }, []);
 

@@ -62,11 +62,11 @@ function Course() {
     </colgroup>
       <thead>
         <tr>
-          <th style={{textAlight:"center"}}>NO</th>
+          <th style={{textAlign:"center"}}>NO</th>
           <th>NAME</th>
           <th>IMAGE</th>
-          <th style={{textAlight:"center"}}>STATUS</th>
-          <th style={{textAlight:"center"}}>ACTION</th>
+          <th style={{textAlign:"center"}}>STATUS</th>
+          <th style={{textAlign:"center"}}>ACTION</th>
         </tr>
       </thead>
       <tbody>
@@ -74,11 +74,11 @@ function Course() {
           data.map((a,i)=>{
             return (
               <tr key={i}>
-                <td style={{textAlight:"center"}}>{i+1}</td>
+                <td style={{textAlign:"center"}}>{i+1}</td>
                 <td>{a.name}</td>
                 <td>{a.image}</td>
-                <td style={{textAlight:"center"}}>{a.status}</td>
-                <td style={{textAlight:"center"}}><button className="button button2">UPDATE</button><button className="button button3">DELETE</button></td>
+                <td style={{textAlign:"center"}}>{a.status}</td>
+                <td style={{textAlign:"center"}}><button className="button button2">UPDATE</button><button className="button button3">DELETE</button></td>
               </tr>
             )
           })

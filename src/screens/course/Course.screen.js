@@ -54,12 +54,12 @@ function Course() {
 
     <table>
     <colgroup>
-      <col style="width:50px"/>
-      <col style="width:"/>
-      <col style="width:"/>
-      <col style="width:"/>
-      <col style="width:80px"/>
-      <col style="width:100px"/>
+      <col style={{width:50}}/>
+      <col/>
+      <col style={{width:50}}/>
+      <col/>
+      <col style={{width:80}}/>
+      <col style={{width:100}}/>
     </colgroup>
       <thead>
         <tr>

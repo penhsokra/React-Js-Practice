@@ -21,11 +21,11 @@ function Course() {
       }
     });
   };
-  const deleteCourse = async (event, category_id) => {
+  const deleteCourse = async (event, course_id) => {
     let text = "Do you want to delete this record ?";
     if (window.confirm(text) == true) {
       setShow(true);
-      await service('DELETE', '/api/course', {"category_id":category_id}).then(function (response) {
+      await service('DELETE', '/api/course', {"course_id":course_id}).then(function (response) {
         setShow(false);
         console.log(response);
         if (!response.error) {

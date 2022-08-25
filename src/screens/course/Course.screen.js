@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import service from '../../service/service';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import axios from 'axios';
 import './Course.css';
 function Course() {
@@ -26,7 +26,7 @@ function Course() {
       {/* <span class="loader"></span> */}
       <div className={show ? 'loader' : 'loader hide'}></div>
       <ul class="breadcrumb">
-        <li><a href="/">Home</a></li>
+        <li><Link to="/">Home</Link></li>
         <li>Course</li>
       </ul>
       <table>

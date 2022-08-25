@@ -71,7 +71,7 @@ function Course() {
       </thead>
       <tbody>
         {
-          data.map((a,i)=>{
+          data ? data.map((a,i)=>{
             return (
               <tr key={i}>
                 <td style={{textAlign:"center"}}>{i+1}</td>
@@ -82,6 +82,7 @@ function Course() {
               </tr>
             )
           })
+          :""
         }
       </tbody>
     </table>

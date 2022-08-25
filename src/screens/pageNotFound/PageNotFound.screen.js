@@ -3,7 +3,7 @@ import './PageNotFound.css';
 function PageNotFound() {
   let navigate = useNavigate();
   return (
-<div>
+<div className='clouds'>
   <div id="clouds">
       <div className="cloud x1"></div>
       <div className="cloud x1_5"></div>

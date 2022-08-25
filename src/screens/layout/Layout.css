@@ -11,7 +11,6 @@
 }
 .item3 {
   grid-area: main;
-  background-color: #e8ebf0;
 }
 .grid-container {
   display: grid;

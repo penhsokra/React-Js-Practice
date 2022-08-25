@@ -25,6 +25,10 @@ function Course() {
     <div className=''>
       {/* <span class="loader"></span> */}
       <div className={show ? 'loader' : 'loader hide'}></div>
+      <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li>Italy</li>
+      </ul>
       <table>
         <colgroup>
           <col style={{ width: 50 }} />

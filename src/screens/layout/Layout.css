@@ -42,4 +42,5 @@
   border-radius: 100%;
 }
 ul,li{padding: 0;list-style: none;}
-.item2 ul li a{display:block;height:50px;color:#009cff;font-size: 1rem;font-weight: 500;line-height:50px;text-align:center;}
+.item2 ul li a{display:block;height:30px;color:#009cff;font-size: 1rem;font-weight: 500;line-height:30px;padding: 0 20px;}
+.item2 ul li a:hover{background-color: white;}

@@ -58,7 +58,7 @@ function Course() {
       <col/>
       <col/>
       <col style={{width:80}}/>
-      <col style={{width:100}}/>
+      <col style={{width:220}}/>
     </colgroup>
       <thead>
         <tr>

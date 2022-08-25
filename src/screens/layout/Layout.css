@@ -1,16 +1,16 @@
 .item1 {
   grid-area: header;
-  background-color: #e8ebf0;
+  background-color: #009879;
   padding: 0 20px;
 }
 .item2 {
   grid-area: menu;
-  background-color: #e8ebf0;
+  background-color: #ff416c;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .item3 {
   grid-area: main;
-  padding: 25px;
+  padding: 35px;
   background-color: white;
 }
 .grid-container {
@@ -31,6 +31,7 @@
 .tit_h2 {
   flex: 1;
   text-align: left;
+  color: #fff;
 }
 .profile {
   display: inline-block;
@@ -40,11 +41,11 @@
   background-color: antiquewhite;
   border: 1px solid #ccc;
 }
-.profile:hover{
+.profile:hover {
   border: 1px solid #ccc;
-  background-color:white;
+  background-color: white;
 }
-.profile a{
+.profile a {
   display: block;
   width: 50px;
   height: 50px;
@@ -54,15 +55,38 @@
   display: block;
   padding: 0;
   margin: 0;
-  
-  opacity:0.5;
-}
-ul,li{margin: 0;padding: 0;list-style: none;}
-.item2 ul{border-top: 1px solid #ddd;}
-.item2 ul li{border-bottom: 1px solid #ddd;}
-.item2 ul li a{display:block;height:50px;color:#009cff;font-size: 1rem;font-weight: 500;line-height:50px;padding: 0 20px;margin: 0;}
-.item2 ul li a:hover{background-color: white;}
 
+  opacity: 0.5;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.item2 ul {
+  border-top: 1px solid #ddd;
+}
+.item2 ul li {
+  border-bottom: 1px solid #ddd;
+}
+.item2 ul li a {
+  display: block;
+  height: 50px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 50px;
+  padding: 0 20px;
+  margin: 0;
+}
+.item2 ul li a:hover {
+  color: #009cff;
+  background-color: white;
+  opacity: 0.9;
+  transform: scale(1);
+  transition: all 0.3s linear 0s;
+}
 
 .our-team {
   padding: 30px 0 0;
@@ -82,11 +106,11 @@ ul,li{margin: 0;padding: 0;list-style: none;}
 }
 
 .our-team .picture::before {
-  content: "";
+  content: '';
   width: 100%;
   height: 0;
   border-radius: 50%;
-  background-color: #1369ce;
+  background-color: #ff416c;
   position: absolute;
   bottom: 135%;
   right: 0;
@@ -101,11 +125,11 @@ ul,li{margin: 0;padding: 0;list-style: none;}
 }
 
 .our-team .picture::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #1369ce;
+  background-color: #ff416c;
   position: absolute;
   top: 0;
   left: 0;

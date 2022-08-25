@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import service from '../../service/service';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Category.css';
-function Category() {
+function Category(props) {
+  let navegate = new useNavigate();
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
 
@@ -22,28 +23,40 @@ function Category() {
     });
   };
   const deleteCourse = async (event, category_id) => {
-    let text = "Do you want to delete this record ?";
+    let text = 'Do you want to delete this record ?';
     if (window.confirm(text) == true) {
       setShow(true);
-      await service('DELETE', '/api/category', {"category_id":category_id}).then(function (response) {
+      await service('DELETE', '/api/category', {
+        category_id: category_id,
+      }).then(function (response) {
         setShow(false);
         console.log(response);
         if (!response.error) {
           getCourse();
-          alert("Delete Success !");
-        }else{
-          alert("Delete Fail !");
+          alert('Delete Success !');
+        } else {
+          alert(response.message.sqlMessage);
         }
       });
-    } 
+    }
   };
   return (
     <div className=''>
       {/* <span class="loader"></span> */}
       <div className={show ? 'loader' : 'loader hide'}></div>
-      <ul class="breadcrumb">
-        <li><Link to="/">Home</Link></li>
-        <li>Category</li>
+      <ul className='breadcrumb'>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>CATEGORY</li>
+        <li style={{ flex: 1, textAlign: 'right' }}>
+          <button
+            className='button button2'
+            onClick={() => navegate('/category-form')}
+          >
+            ADD NEW
+          </button>
+        </li>
       </ul>
       <table>
         <colgroup>
@@ -72,15 +85,25 @@ function Category() {
                   <td>{a.image}</td>
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
-                    <button className='button button2'>UPDATE</button>
-                    <button className='button button3' onClick={(e)=>deleteCourse(e,a.category_id)}>DELETE</button>
+                    <button
+                      className='button button2'
+                      onClick={() => navegate('/category-form')}
+                    >
+                      UPDATE
+                    </button>
+                    <button
+                      className='button button3'
+                      onClick={(e) => deleteCourse(e, a.category_id)}
+                    >
+                      DELETE
+                    </button>
                   </td>
                 </tr>
               );
             })
           ) : (
             <tr>
-              <td colspan='5' style={{ textAlign: 'center',color:"red" }}>
+              <td colspan='5' style={{ textAlign: 'center', color: 'red' }}>
                 Something wrong !
               </td>
             </tr>

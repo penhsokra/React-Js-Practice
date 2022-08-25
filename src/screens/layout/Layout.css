@@ -1,12 +1,10 @@
 .item1 {
   grid-area: header;
-  background-color: white;
-  border-bottom: 1px solid #ccc;
+  background-color: #e8ebf0;
   padding: 0 20px;
 }
 .item2 {
   grid-area: menu;
-  border-right: 1px solid #ccc;
   background-color: #e8ebf0;
 }
 .item3 {
@@ -57,14 +55,15 @@
   
   opacity:0.5;
 }
-ul,li{padding: 0;list-style: none;}
+ul,li{margin: 0;padding: 0;list-style: none;}
+.item2 ul{border-top: 1px solid #ddd;}
+.item2 ul li{border-bottom: 1px solid #ddd;}
 .item2 ul li a{display:block;height:50px;color:#009cff;font-size: 1rem;font-weight: 500;line-height:50px;padding: 0 20px;margin: 0;}
 .item2 ul li a:hover{background-color: white;}
 
 
 .our-team {
   padding: 30px 0 0;
-  margin-bottom: 30px;
   background-color: #f7f5ec;
   text-align: center;
   overflow: hidden;

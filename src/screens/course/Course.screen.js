@@ -57,7 +57,6 @@ function Course() {
       <col style={{width:50}}/>
       <col/>
       <col/>
-      <col/>
       <col style={{width:80}}/>
       <col style={{width:100}}/>
     </colgroup>
@@ -65,7 +64,6 @@ function Course() {
         <tr>
           <th style={{textAlight:"center"}}>NO</th>
           <th>NAME</th>
-          <th style={{textAlight:"center"}}>PARENT</th>
           <th>IMAGE</th>
           <th style={{textAlight:"center"}}>STATUS</th>
           <th style={{textAlight:"center"}}>ACTION</th>
@@ -78,7 +76,6 @@ function Course() {
               <tr key={i}>
                 <td style={{textAlight:"center"}}>{i+1}</td>
                 <td>{a.name}</td>
-                <td style={{textAlight:"center"}}>{a.parent}</td>
                 <td>{a.image}</td>
                 <td style={{textAlight:"center"}}>{a.status}</td>
                 <td style={{textAlight:"center"}}><button className="button button2">UPDATE</button><button className="button button3">DELETE</button></td>

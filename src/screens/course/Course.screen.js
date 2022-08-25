@@ -26,8 +26,8 @@ function Course() {
       {/* <span class="loader"></span> */}
       <div className={show ? 'loader' : 'loader hide'}></div>
       <ul class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li>Italy</li>
+        <li><a href="/">Home</a></li>
+        <li>Course</li>
       </ul>
       <table>
         <colgroup>

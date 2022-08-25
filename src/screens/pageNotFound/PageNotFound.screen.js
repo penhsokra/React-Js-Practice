@@ -17,7 +17,7 @@ function PageNotFound() {
         <hr/>
         <div className='_1'>THE PAGE</div>
         <div className='_2'>WAS NOT FOUND</div>
-        <a className='btn' href='#none' onClick={navigate('/')}>BACK TO MARS</a>
+        <a className='btn' href='#none' onClick={navigate('/')}>BACK TO HOME</a>
     </div>
 </div>
 );

@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Course.css';
 function Course() {
   const [show, setShow] = useState(false);
-  const [data, setData] = useState('');
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     getCourse();

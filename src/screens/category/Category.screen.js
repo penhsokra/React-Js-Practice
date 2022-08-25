@@ -13,11 +13,11 @@ function Category() {
 
   const getCourse = async (event, user) => {
     setShow(true);
-    await service('GET', '/api/course', {}).then(function (response) {
+    await service('GET', '/api/category', {}).then(function (response) {
       setShow(false);
       console.log(response);
       if (!response.error) {
-        setData(response.category);
+        setData(response.list);
       }
     });
   };

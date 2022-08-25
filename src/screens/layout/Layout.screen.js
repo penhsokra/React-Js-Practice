@@ -1,7 +1,15 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link,Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Layout.css';
 function Layout() {
+  let navigate = useNavigate();
+  const [isLogin,setIslogin] = useState(localStorage.get("islogin"));
+  useEffect(()=>{
+    (!isLogin){
+      navigate('/auth');
+    }
+  },[]);
   return (
     <div>
       <div className='grid-container'>

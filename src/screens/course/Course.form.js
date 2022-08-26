@@ -40,7 +40,9 @@ function CourseForm() {
       setLoading(false);
       console.log(response);
       if (!response.error) {
-        setCategory(response.list);
+        if(response && response.list){
+          setCategory(response.list);
+        }
       } else {
         alert('Request category faild !');
       }

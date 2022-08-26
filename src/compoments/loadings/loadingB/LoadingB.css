@@ -1,0 +1,24 @@
+.loading {
+  -webkit-animation: spin 21s linear infinite;
+  animation: spin 1s linear infinite;
+  border: 10px solid #f3f3f3;
+  border-color: blue green red pink;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 10px;
+  height: 70px;
+  width: 70px;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+}
+.hide{display: none !important;}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

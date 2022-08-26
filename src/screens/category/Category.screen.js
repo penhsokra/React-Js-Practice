@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import service from '../../service/service';
 import { useNavigate, Link } from 'react-router-dom';
+import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
 import axios from 'axios';
 import './Category.css';
 function Category(props) {
   let navegate = new useNavigate();
-  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -13,23 +14,23 @@ function Category(props) {
   }, []);
 
   const getCourse = async (event, user) => {
-    setShow(true);
+    setLoading(true);
     await service('GET', '/api/category', {}).then(function (response) {
-      setShow(false);
+      setLoading(false);
       console.log(response);
       if (!response.error) {
-        setData(response.list);
+        setLoading(response.list);
       }
     });
   };
   const deleteCourse = async (event, category_id) => {
     let text = 'Do you want to delete this record ?';
     if (window.confirm(text) == true) {
-      setShow(true);
+      setLoading(true);
       await service('DELETE', '/api/category', {
         category_id: category_id,
       }).then(function (response) {
-        setShow(false);
+        setLoading(false);
         console.log(response);
         if (!response.error) {
           getCourse();
@@ -42,8 +43,7 @@ function Category(props) {
   };
   return (
     <div className=''>
-      {/* <span class="loader"></span> */}
-      <div className={show ? 'loader' : 'loader hide'}></div>
+      <LoadingB show={loading}/>
       <ul className='breadcrumb'>
         <li>
           <Link to='/'>Home</Link>

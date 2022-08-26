@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import service from '../../service/service';
+import {REDBUTTON,GREENBUTTON} from '../../utils/buttons/button.util';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Course.css';
@@ -85,18 +86,14 @@ function Course() {
                   <td style={{ textAlign: 'center' }}>{a.full_price}</td>
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
-                    <button
-                      className='button button2'
+                    <REDBUTTON
+                      title="UPDATE"
                       onClick={(e) => navegate('/course-form')}
-                    >
-                      UPDATE
-                    </button>
-                    <button
-                      className='button button3'
+                    />
+                    <REDBUTTON
+                      title="DELETE"
                       onClick={(e) => deleteCourse(e, a.course_id)}
-                    >
-                      DELETE
-                    </button>
+                    />
                   </td>
                 </tr>
               );

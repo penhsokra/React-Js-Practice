@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import service from '../../service/service';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import LoadingA from '../../compoments/loadings/LoadingA.component';
 import './Auth.css';
 function AuthScreen() {
   let navigate = useNavigate();
   const [isLogin, setIslogin] = useState(localStorage.getItem('islogin'));
   const [loginMessage, setLoginMessage] = useState('');
-  const [registerMessage, setRegisterMessage] = useState('');
-  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const formControll = () => {
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
@@ -42,12 +42,13 @@ function AuthScreen() {
     });
     console.log(user);
   };
+
   const login = (event, user) => {
-    setShow(true);
+    setLoading(true);
     event.preventDefault();
     setLoginMessage('');
     service('POST', '/api/auth/login', user).then(function (response) {
-      setShow(false);
+      setLoading(false);
       console.log(response.message);
       if (response.error) {
         var text = '';
@@ -66,45 +67,15 @@ function AuthScreen() {
       }
     });
   };
+
   const register = (e) => {
     e.preventDefault();
-    alert('Route not found');
-    setRegisterMessage('Route not found !');
-    service('GET', '/api/auth/register', {}).then(function (response) {
-      console.log(response);
-    });
+    alert('No API');
   };
+  
   return (
     <div className='auth_wrap'>
-      <div className={show ? 'loading' : 'loading hide'}>
-        <svg width='100' height='100' viewBox='0 0 100 100'>
-          <polyline
-            className='line-cornered stroke-still'
-            points='0,0 100,0 100,100'
-            strokeWidth='10'
-            fill='none'
-          ></polyline>
-          <polyline
-            className='line-cornered stroke-still'
-            points='0,0 0,100 100,100'
-            strokeWidth='10'
-            fill='none'
-          ></polyline>
-          <polyline
-            className='line-cornered stroke-animation'
-            points='0,0 100,0 100,100'
-            strokeWidth='10'
-            fill='none'
-          ></polyline>
-          <polyline
-            className='line-cornered stroke-animation'
-            points='0,0 0,100 100,100'
-            strokeWidth='10'
-            fill='none'
-          ></polyline>
-        </svg>
-      </div>
-
+      <LoadingA show={show}/>
       <div className='container' id='container'>
         <div className='form-container sign-up-container'>
           <form method='post'>

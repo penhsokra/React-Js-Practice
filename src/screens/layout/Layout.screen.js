@@ -37,7 +37,7 @@ function Layout() {
             </li>
           </ul>
         </div>
-        <div className='conten'>
+        <div className='content'>
            <Outlet />
         </div>
       </div>

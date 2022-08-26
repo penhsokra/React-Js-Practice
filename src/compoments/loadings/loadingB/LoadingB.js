@@ -3,7 +3,7 @@ import React from 'react';
 
 function LoadingB(props) {
   return (
-    <div className={props.show ? 'loaderB' : 'loaderB hide'}></div>
+    <div className={props.show ? 'loadingB' : 'loadingB hide'}></div>
   );
 }
 

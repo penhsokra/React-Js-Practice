@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import service from '../../service/service';
-import {REDBUTTON,GREENBUTTON} from '../../utils/buttons/button.util';
+import {REDBUTTON,GREENBUTTON} from '../../utils/buttons/button';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Course.css';

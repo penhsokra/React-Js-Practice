@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import service from '../../service/service';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import LoadingA from '../../compoments/loadings/LoadingA.component';
+import LoadingA from '../../compoments/loadings/LoadingA/LoadingA.component';
 import './Auth.css';
 function AuthScreen() {
   let navigate = useNavigate();

@@ -35,9 +35,9 @@ function CourseForm() {
     });
   };
   const getCategory = async (event, user) => {
-    setShow(true);
+    setLoading(true);
     await service('get', '/api/category', {}).then(function (response) {
-      setShow(false);
+      setLoading(false);
       console.log(response);
       if (!response.error) {
         setCategory(response.list);

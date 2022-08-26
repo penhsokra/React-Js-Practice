@@ -19,7 +19,7 @@ function Category(props) {
       setLoading(false);
       console.log(response);
       if (!response.error) {
-        setLoading(response.list);
+        setData(response.list);
       }
     });
   };

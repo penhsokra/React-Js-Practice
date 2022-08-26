@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import service from '../../service/service';
 import { useNavigate, Link } from 'react-router-dom';
 import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
-import {REDBUTTON,GREENBUTTON} from '../../util/button/button';
+import { REDBUTTON, GREENBUTTON } from '../../util/button/button';
 import axios from 'axios';
 import './Category.css';
 function Category(props) {
@@ -20,8 +20,10 @@ function Category(props) {
       setLoading(false);
       console.log(response);
       if (!response.error) {
-        if(response && response.list){
+        if (response && response.list) {
           setData(response.list);
+        } else {
+          setData(false);
         }
       }
     });
@@ -46,14 +48,20 @@ function Category(props) {
   };
   return (
     <div className=''>
-      <LoadingB show={loading}/>
+      <LoadingB show={loading} />
       <ul className='breadcrumb'>
         <li>
-          <Link to='/'>Home</Link>
+          <Link to='/'>Home </Link>
         </li>
-        <li>CATEGORY</li>
+        <li> / CATEGORY</li>
         <li style={{ flex: 1, textAlign: 'right' }}>
-          <GREENBUTTON title="ADD NEW" onClick={(e) => navegate('/category-form')}/>
+          <div className='searchBox'>
+            <input type='text' placeholder='search...'></input>
+            <GREENBUTTON
+              title='ADD NEW'
+              onClick={(e) => navegate('/category-form')}
+            />
+          </div>
         </li>
       </ul>
       <table>
@@ -83,8 +91,14 @@ function Category(props) {
                   <td>{a.image}</td>
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
-                    <GREENBUTTON title="UPDATE" onClick={(e) => navegate('/category-form')}/>
-                    <REDBUTTON title="DELETE" onClick={(e) => deleteCourse(e, a.category_id)}/>
+                    <GREENBUTTON
+                      title='UPDATE'
+                      onClick={(e) => navegate('/category-form')}
+                    />
+                    <REDBUTTON
+                      title='DELETE'
+                      onClick={(e) => deleteCourse(e, a.category_id)}
+                    />
                   </td>
                 </tr>
               );

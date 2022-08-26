@@ -40,7 +40,7 @@ function CourseForm() {
       setLoading(false);
       console.log(response);
       if (!response.error) {
-        if(response && response.list){
+        if (response && response.list) {
           setCategory(response.list);
         }
       } else {
@@ -50,12 +50,12 @@ function CourseForm() {
   };
   return (
     <div>
-      <LoadingB show={loading}/>
+      <LoadingB show={loading} />
       <ul className='breadcrumb'>
         <li>
           <Link to='/'>Home</Link>
         </li>
-        <li>COURSE FORM</li>
+        <li> / COURSE FORM</li>
       </ul>
       <div className='' style={{ padding: 30, border: '1px solid #ddd' }}>
         <div className='row'>

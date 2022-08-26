@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import service from '../../service/service';
-import {REDBUTTON,GREENBUTTON} from '../../util/button/button';
+import { REDBUTTON, GREENBUTTON } from '../../util/button/button';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Course.css';
@@ -20,8 +20,10 @@ function Course() {
       setLoading(false);
       console.log(response);
       if (!response.error) {
-        if(response && response.list){
-           setData(response.list);
+        if (response && response.list) {
+          setData(response.list);
+        } else {
+          setData(false);
         }
       }
     });
@@ -46,14 +48,20 @@ function Course() {
   };
   return (
     <div className=''>
-      <LoadingB show={loading}/>
+      <LoadingB show={loading} />
       <ul className='breadcrumb'>
         <li>
-          <Link to='/'>Home</Link>
+          <Link to='/'>Home </Link>
         </li>
-        <li>COURSE</li>
+        <li> / COURSE</li>
         <li style={{ flex: 1, textAlign: 'right' }}>
-          <GREENBUTTON title="ADD NEW" onClick={(e) => navegate('/course-form')}/>
+          <div className='searchBox'>
+            <input type='text' placeholder='search...'></input>
+            <GREENBUTTON
+              title='ADD NEW'
+              onClick={(e) => navegate('/course-form')}
+            />
+          </div>
         </li>
       </ul>
       <table>
@@ -83,8 +91,14 @@ function Course() {
                   <td style={{ textAlign: 'center' }}>{a.full_price}</td>
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
-                    <GREENBUTTON title="UPDATE" onClick={(e) => navegate('/course-form')}/>
-                    <REDBUTTON title="DELETE" onClick={(e) => deleteCourse(e, a.course_id)}/>
+                    <GREENBUTTON
+                      title='UPDATE'
+                      onClick={(e) => navegate('/course-form')}
+                    />
+                    <REDBUTTON
+                      title='DELETE'
+                      onClick={(e) => deleteCourse(e, a.course_id)}
+                    />
                   </td>
                 </tr>
               );

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import service from '../../service/service';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import LoadingA from '../../compoments/loadings/LoadingA/LoadingA.component';
 import './Auth.css';
+import LoadingA from '../../compoments/loadings/loadingA/LoadingA';
 function AuthScreen() {
   let navigate = useNavigate();
   const [isLogin, setIslogin] = useState(localStorage.getItem('islogin'));
@@ -72,10 +72,10 @@ function AuthScreen() {
     e.preventDefault();
     alert('No API');
   };
-  
+
   return (
     <div className='auth_wrap'>
-      <LoadingA show={show}/>
+      <LoadingA show={loading} />
       <div className='container' id='container'>
         <div className='form-container sign-up-container'>
           <form method='post'>
@@ -119,9 +119,7 @@ function AuthScreen() {
             <button className='mgt8' onClick={(e) => register(e)}>
               Sign Up
             </button>
-            <span className='mgt8' className='error'>
-              {registerMessage}
-            </span>
+            <span className='mgt8' className='error'></span>
           </form>
         </div>
         <div className='form-container sign-in-container'>

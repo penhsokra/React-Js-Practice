@@ -10,13 +10,13 @@ html,body{overflow:hidden;height:100vh;padding: 0;margin: 0;}
 }
 .header {
   grid-area: header;
-  background-color: #ff416c;
+  background: linear-gradient(90deg,#ff4b2b,#ff416c);
   padding: 0 20px;
 }
 .aside_top {
   position: relative;
   grid-area: aside_top;
-  background-color: #ff416c;
+  background: linear-gradient(90deg,#ff4b2b,#ff416c);
   /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
   border-right: 1px solid #e7e7e7;
   overflow-y: auto;
@@ -121,7 +121,7 @@ li {
   width: 100%;
   height: 0;
   border-radius: 50%;
-  background-color: #ff416c;
+  background: linear-gradient(90deg,#ff4b2b,#ff416c);
   position: absolute;
   bottom: 135%;
   right: 0;
@@ -140,7 +140,7 @@ li {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #ff416c;
+  background: linear-gradient(90deg,#ff4b2b,#ff416c);
   position: absolute;
   top: 0;
   left: 0;

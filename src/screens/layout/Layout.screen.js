@@ -13,13 +13,13 @@ function Layout() {
   return (
     <div>
       <div className='grid-container'>
-        <div className='item1'>
+        <div className='header'>
           <div className='heaer_inner'>
             <h2 className='tit_h2'>SCHOOL MANAGEMENT</h2>
             <div className='profile'><a href='#none' onClick={()=>{localStorage.clear();navigate('/auth')}}></a></div>
           </div>
         </div>
-        <div className='item2'>
+        <div className='nav'>
           <div className="our-team">
             <div className="picture">
               <img className="img-fluid" src="https://picsum.photos/130/130?image=1027"/>
@@ -37,7 +37,7 @@ function Layout() {
             </li>
           </ul>
         </div>
-        <div className='item3'>
+        <div className='conten'>
            <Outlet />
         </div>
       </div>

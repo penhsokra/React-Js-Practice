@@ -1,17 +1,22 @@
-.item1 {
+.header {
   grid-area: header;
   background-color: #009879;
   padding: 0 20px;
 }
-.item2 {
+.nav {
   grid-area: menu;
   background-color: #ff416c;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  
 }
-.item3 {
+.content {
   grid-area: main;
   padding: 35px;
   background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .grid-container {
   display: grid;
@@ -64,13 +69,13 @@ li {
   padding: 0;
   list-style: none;
 }
-.item2 ul {
+.nav ul {
   border-top: 1px solid #ddd;
 }
-.item2 ul li {
+.nav ul li {
   border-bottom: 1px solid #ddd;
 }
-.item2 ul li a {
+.nav ul li a {
   display: block;
   height: 50px;
   color: #fff;
@@ -80,7 +85,7 @@ li {
   padding: 0 20px;
   margin: 0;
 }
-.item2 ul li a:hover {
+.nav ul li a:hover {
   color: #009cff;
   background-color: white;
   opacity: 0.9;

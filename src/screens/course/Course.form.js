@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import service from '../../service/service';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-
+import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
 function CourseForm() {
-  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
   const [data, setData] = useState({
     name: '',
@@ -48,7 +48,7 @@ function CourseForm() {
   };
   return (
     <div>
-      <div className={show ? 'loader' : 'loader hide'}></div>
+      <LoadingB show={loading}/>
       <ul className='breadcrumb'>
         <li>
           <Link to='/'>Home</Link>

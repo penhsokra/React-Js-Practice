@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import service from '../../service/service';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-
+import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
 function CategoryForm() {
-  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     name: '',
     image: '',
@@ -20,9 +20,9 @@ function CategoryForm() {
   };
 
   const AddCategory = async (event, user) => {
-    setShow(true);
+    setLoading(true);
     await service('POST', '/api/category', data).then(function (response) {
-      setShow(false);
+      setLoading(false);
       console.log(response);
       if (!response.error) {
         alert('Add Succes !');
@@ -33,7 +33,7 @@ function CategoryForm() {
   };
   return (
     <div>
-      <div className={show ? 'loader' : 'loader hide'}></div>
+     <LoadingB show={loading}/>
       <ul className='breadcrumb'>
         <li>
           <Link to='/'>Home</Link>

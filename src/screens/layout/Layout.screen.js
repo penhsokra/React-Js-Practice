@@ -37,7 +37,7 @@ function Layout() {
             </li>
           </ul>
         </nav>
-        <nav className='aside_bottom'></nav>
+        <nav className='aside_bottom'>Theme Change</nav>
         <main className='content'>
            <Outlet />
         </main>

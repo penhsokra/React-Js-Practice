@@ -12,14 +12,14 @@ function Layout() {
   }, []);
   return (
     <div>
-      <div className='grid-container'>
-        <div className='header'>
+      <div className='layout'>
+        <header className='header'>
           <div className='heaer_inner'>
-            <h2 className='tit_h2'>SCHOOL MANAGEMENT</h2>
+            <h2 className='tit_h2'>xx</h2>
             <div className='profile'><a href='#none' onClick={()=>{localStorage.clear();navigate('/auth')}}></a></div>
           </div>
-        </div>
-        <div className='nav'>
+        </header>
+        <nav className='aside_top'>
           <div className="our-team">
             <div className="picture">
               <img className="img-fluid" src="https://picsum.photos/130/130?image=1027"/>
@@ -36,10 +36,11 @@ function Layout() {
               <Link to='/course'>COURSE</Link>
             </li>
           </ul>
-        </div>
-        <div className='content'>
+        </nav>
+        <nav className='aside_bottom'></nav>
+        <main className='content'>
            <Outlet />
-        </div>
+        </main>
       </div>
     </div>
   );

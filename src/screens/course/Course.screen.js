@@ -20,7 +20,9 @@ function Course() {
       setLoading(false);
       console.log(response);
       if (!response.error) {
-        setData(response.list);
+        if(response && response.list){
+           setData(response.list);
+        }
       }
     });
   };

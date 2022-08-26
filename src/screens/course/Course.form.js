@@ -23,9 +23,9 @@ function CourseForm() {
     getCategory();
   }, []);
   const AddCourse = async (event, user) => {
-    setShow(true);
+    setLoading(true);
     await service('POST', '/api/course', data).then(function (response) {
-      setShow(false);
+      setLoading(false);
       console.log(response);
       if (!response.err) {
         alert('Add Succes !');

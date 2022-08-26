@@ -10,14 +10,14 @@ html,body{overflow:hidden;height:100vh;padding: 0;margin: 0;}
 }
 .header {
   grid-area: header;
-  background-color: #009879;
+  background-color: #ff416c;
   padding: 0 20px;
 }
 .aside_top {
   position: relative;
   grid-area: aside_top;
   background-color: #ff416c;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
   border-right: 1px solid #e7e7e7;
   overflow-y: auto;
   overflow-x: hidden;
@@ -67,7 +67,6 @@ html,body{overflow:hidden;height:100vh;padding: 0;margin: 0;}
   display: block;
   padding: 0;
   margin: 0;
-
   opacity: 0.5;
 }
 ul,
@@ -95,7 +94,7 @@ li {
 .aside_top ul li a:hover {
   color: #009cff;
   background-color: white;
-  opacity: 0.9;
+  opacity: 0.8;
   transform: scale(1);
   transition: all 0.3s linear 0s;
 }
@@ -127,7 +126,7 @@ li {
   bottom: 135%;
   right: 0;
   left: 0;
-  opacity: 0.9;
+  opacity: 0.8;
   transform: scale(3);
   transition: all 0.3s linear 0s;
 }

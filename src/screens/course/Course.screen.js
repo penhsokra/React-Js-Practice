@@ -86,14 +86,8 @@ function Course() {
                   <td style={{ textAlign: 'center' }}>{a.full_price}</td>
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
-                    <REDBUTTON
-                      title="UPDATE"
-                      onClick={(e) => navegate('/course-form')}
-                    />
-                    <REDBUTTON
-                      title="DELETE"
-                      onClick={(e) => deleteCourse(e, a.course_id)}
-                    />
+                    <REDBUTTON title="UPDATE" onClick={(e) => navegate('/course-form')}/>
+                    <REDBUTTON title="DELETE" onClick={(e) => deleteCourse(e, a.course_id)}/>
                   </td>
                 </tr>
               );

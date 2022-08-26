@@ -5,7 +5,7 @@ const GREENBUTTON = (props) => {
   );
 }
 
-const REDBUTTON = () => {
+const REDBUTTON = (props) => {
     return (
         <button className='button button3' onClick={props.onClick}>{props.title}</button>
       );

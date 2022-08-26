@@ -51,12 +51,7 @@ function Course() {
         </li>
         <li>COURSE</li>
         <li style={{ flex: 1, textAlign: 'right' }}>
-          <button
-            className='button button2'
-            onClick={() => navegate('/course-form')}
-          >
-            ADD NEW
-          </button>
+          <GREENBUTTON title="ADD NEW" onClick={(e) => navegate('/course-form')}/>
         </li>
       </ul>
       <table>
@@ -86,7 +81,7 @@ function Course() {
                   <td style={{ textAlign: 'center' }}>{a.full_price}</td>
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
-                    <REDBUTTON title="UPDATE" onClick={(e) => navegate('/course-form')}/>
+                    <GREENBUTTON title="UPDATE" onClick={(e) => navegate('/course-form')}/>
                     <REDBUTTON title="DELETE" onClick={(e) => deleteCourse(e, a.course_id)}/>
                   </td>
                 </tr>

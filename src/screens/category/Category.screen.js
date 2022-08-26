@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import service from '../../service/service';
 import { useNavigate, Link } from 'react-router-dom';
 import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
+import {REDBUTTON,GREENBUTTON} from '../../util/button/button';
 import axios from 'axios';
 import './Category.css';
 function Category(props) {
@@ -50,12 +51,7 @@ function Category(props) {
         </li>
         <li>CATEGORY</li>
         <li style={{ flex: 1, textAlign: 'right' }}>
-          <button
-            className='button button2'
-            onClick={() => navegate('/category-form')}
-          >
-            ADD NEW
-          </button>
+          <GREENBUTTON title="ADD NEW" onClick={(e) => navegate('/category-form')}/>
         </li>
       </ul>
       <table>
@@ -85,18 +81,8 @@ function Category(props) {
                   <td>{a.image}</td>
                   <td style={{ textAlign: 'center' }}>{a.status}</td>
                   <td style={{ textAlign: 'center' }}>
-                    <button
-                      className='button button2'
-                      onClick={() => navegate('/category-form')}
-                    >
-                      UPDATE
-                    </button>
-                    <button
-                      className='button button3'
-                      onClick={(e) => deleteCourse(e, a.category_id)}
-                    >
-                      DELETE
-                    </button>
+                    <GREENBUTTON title="UPDATE" onClick={(e) => navegate('/category-form')}/>
+                    <REDBUTTON title="DELETE" onClick={(e) => deleteCourse(e, a.category_id)}/>
                   </td>
                 </tr>
               );

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
 import { REDBUTTON, GREENBUTTON } from '../../util/button/button';
 import Breadcrumb from '../../compoments/breadcrumb/Breadcrumb';
-import Table from '../../compoments/table/Table';
+import MyTable from '../../compoments/table/MyTable';
 import './Category.css';
 function Category(props) {
   const col = [50, 'auto', 'auto', 100, 231];
@@ -59,7 +59,7 @@ function Category(props) {
         onChangeInput={() => alert('on change...')}
         onClickButton={(e) => navegate('/category-form')}
       />
-      <Table
+      <MyTable
         className='tblCategory'
         ColWidth={col}
         tableHeader={tableHeader}

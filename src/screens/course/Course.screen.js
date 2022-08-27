@@ -4,7 +4,7 @@ import service from '../../service/service';
 import { REDBUTTON, GREENBUTTON } from '../../util/button/button';
 import Breadcrumb from '../../compoments/breadcrumb/Breadcrumb';
 import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
-import Table from '../../compoments/table/Table';
+import MyTable from '../../compoments/table/MyTable';
 import './Course.css';
 function Course() {
   const col = [50, 'auto', 100, 100, 231];
@@ -60,7 +60,7 @@ function Course() {
         onChangeInput={() => alert('on change...')}
         onClickButton={(e) => navegate('/course-form')}
       />
-      <Table
+      <MyTable
         className='tblCourse'
         ColWidth={col}
         tableHeader={tableHeader}

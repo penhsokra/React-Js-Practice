@@ -1,6 +1,6 @@
 import React from 'react';
 import './Table.css';
-function Table(props) {
+function MyTable(props) {
   return (
     <table className={props.className}>
       <colgroup>
@@ -28,4 +28,4 @@ function Table(props) {
   );
 }
 
-export default Table;
+export default MyTable;

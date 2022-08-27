@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import service from '../../service/service';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
 import { REDBUTTON, GREENBUTTON } from '../../util/button/button';
-import axios from 'axios';
+import Breadcrumb from '../../compoments/breadcrumb/Breadcrumb';
+import Table from '../../compoments/table/Table';
 import './Category.css';
 function Category(props) {
+  const col = [50, 'auto', 'auto', 100, 231];
+  const tableHeader = ['ID', 'NAME', 'IMAGE', 'STATUS', 'ACTION'];
   let navegate = new useNavigate();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -30,7 +33,7 @@ function Category(props) {
   };
   const deleteCourse = async (event, category_id) => {
     let text = 'Do you want to delete this record ?';
-    if (window.confirm(text) == true) {
+    if (window.confirm(text) === true) {
       setLoading(true);
       await service('DELETE', '/api/category', {
         category_id: category_id,
@@ -49,40 +52,19 @@ function Category(props) {
   return (
     <div className=''>
       <LoadingB show={loading} />
-      <ul className='breadcrumb'>
-        <li>
-          <Link to='/'>Home </Link>
-        </li>
-        <li> / CATEGORY</li>
-        <li style={{ flex: 1, textAlign: 'right' }}>
-          <div className='searchBox'>
-            <input type='text' placeholder='search...'></input>
-            <GREENBUTTON
-              title='ADD NEW'
-              onClick={(e) => navegate('/category-form')}
-            />
-          </div>
-        </li>
-      </ul>
-      <table>
-        <colgroup>
-          <col style={{ width: 50 }} />
-          <col />
-          <col />
-          <col style={{ width: 80 }} />
-          <col style={{ width: 231 }} />
-        </colgroup>
-        <thead>
-          <tr>
-            <th style={{ textAlign: 'center' }}>NO</th>
-            <th>NAME</th>
-            <th>IMAGE</th>
-            <th style={{ textAlign: 'center' }}>STATUS</th>
-            <th style={{ textAlign: 'center' }}>ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data ? (
+      <Breadcrumb
+        stepTitle='CATEGORY'
+        buttonTitle='ADD NEW'
+        showRightBox={true}
+        onChangeInput={() => alert('on change...')}
+        onClickButton={(e) => navegate('/category-form')}
+      />
+      <Table
+        className='tblCategory'
+        ColWidth={col}
+        tableHeader={tableHeader}
+        tableBody={
+          data ? (
             data.map((a, i) => {
               return (
                 <tr key={i}>
@@ -109,9 +91,9 @@ function Category(props) {
                 Something wrong !
               </td>
             </tr>
-          )}
-        </tbody>
-      </table>
+          )
+        }
+      />
     </div>
   );
 }

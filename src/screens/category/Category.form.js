@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import service from '../../service/service';
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
 import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
+import Breadcrumb from '../../compoments/breadcrumb/Breadcrumb';
 function CategoryForm() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
@@ -34,12 +33,7 @@ function CategoryForm() {
   return (
     <div>
       <LoadingB show={loading} />
-      <ul className='breadcrumb'>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li> / CATEGORY FORM</li>
-      </ul>
+      <Breadcrumb stepTitle='COURSE' buttonTitle=' / CATEGORY FORM' />
       <div className='' style={{ padding: 30, border: '1px solid #ddd' }}>
         <div className='row'>
           <div className='col-75'>

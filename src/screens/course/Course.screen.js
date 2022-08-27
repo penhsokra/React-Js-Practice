@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import service from '../../service/service';
 import { REDBUTTON, GREENBUTTON } from '../../util/button/button';
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
-import './Course.css';
+import Breadcrumb from '../../compoments/breadcrumb/Breadcrumb';
 import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
+import Table from '../../compoments/table/Table';
+import './Course.css';
 function Course() {
+  const col = [50, 'auto', 100, 100, 231];
+  const tableHeader = ['ID', 'NAME', 'PRICE', 'STATUS', 'ACTION'];
   let navegate = new useNavigate();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -30,7 +33,7 @@ function Course() {
   };
   const deleteCourse = async (event, course_id) => {
     let text = 'Do you want to delete this record ?';
-    if (window.confirm(text) == true) {
+    if (window.confirm(text) === true) {
       setLoading(true);
       await service('DELETE', '/api/course', { course_id: course_id }).then(
         function (response) {
@@ -46,43 +49,23 @@ function Course() {
       );
     }
   };
+
   return (
     <div className=''>
       <LoadingB show={loading} />
-      <ul className='breadcrumb'>
-        <li>
-          <Link to='/'>Home </Link>
-        </li>
-        <li> / COURSE</li>
-        <li style={{ flex: 1, textAlign: 'right' }}>
-          <div className='searchBox'>
-            <input type='text' placeholder='search...'></input>
-            <GREENBUTTON
-              title='ADD NEW'
-              onClick={(e) => navegate('/course-form')}
-            />
-          </div>
-        </li>
-      </ul>
-      <table>
-        <colgroup>
-          <col style={{ width: 50 }} />
-          <col />
-          <col style={{ width: 120 }} />
-          <col style={{ width: 120 }} />
-          <col style={{ width: 231 }} />
-        </colgroup>
-        <thead>
-          <tr>
-            <th style={{ textAlign: 'center' }}>NO</th>
-            <th>NAME</th>
-            <th style={{ textAlign: 'center' }}>PRICE</th>
-            <th style={{ textAlign: 'center' }}>STATUS</th>
-            <th style={{ textAlign: 'center' }}>ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data ? (
+      <Breadcrumb
+        stepTitle='COURSE'
+        buttonTitle='ADD NEW'
+        showRightBox={true}
+        onChangeInput={() => alert('on change...')}
+        onClickButton={(e) => navegate('/course-form')}
+      />
+      <Table
+        className='tblCourse'
+        ColWidth={col}
+        tableHeader={tableHeader}
+        tableBody={
+          data ? (
             data.map((a, i) => {
               return (
                 <tr key={i}>
@@ -109,9 +92,9 @@ function Course() {
                 Something wrong !
               </td>
             </tr>
-          )}
-        </tbody>
-      </table>
+          )
+        }
+      />
     </div>
   );
 }

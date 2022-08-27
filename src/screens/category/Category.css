@@ -1,0 +1,7 @@
+.tblCategory thead th {
+  text-align: center;
+}
+.tblCategory .col1,
+.tblCategory .col2 {
+  text-align: left;
+}

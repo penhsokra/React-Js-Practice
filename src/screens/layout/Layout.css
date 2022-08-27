@@ -47,8 +47,8 @@ body {
 }
 .profile {
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
   background-color: #e7e7e7;
   border: 1px solid #ccc;
@@ -59,8 +59,8 @@ body {
 }
 .profile a {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: url('./logout.png') 50% 50% no-repeat;
   background-size: 25px;
   border-radius: 100%;
@@ -101,10 +101,13 @@ li {
 
 .our-team {
   padding: 30px 0 0;
-  background-color: #f7f5ec;
+  background-color: #f1f1f1;
   text-align: center;
   overflow: hidden;
   position: relative;
+}
+.lightMod .our-team {
+  background-color: #fff;
 }
 
 .our-team .picture {

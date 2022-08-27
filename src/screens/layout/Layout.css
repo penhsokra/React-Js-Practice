@@ -17,6 +17,7 @@ body {
 .header {
   grid-area: header;
   padding: 0 20px;
+  transition: all 0.3s linear 0s;
 }
 .aside_top {
   position: relative;
@@ -24,6 +25,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   border-right: 1px solid #f3f3f3;
+  transition: all 0.3s linear 0s;
 }
 
 .content {

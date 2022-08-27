@@ -76,7 +76,7 @@ function Course() {
                   <td style={{ textAlign: 'center' }}>
                     <GREENBUTTON
                       title='UPDATE'
-                      onClick={(e) => navegate('/course-form')}
+                      onClick={(e) => navegate('/course-form/' + a.course_id)}
                     />
                     <REDBUTTON
                       title='DELETE'

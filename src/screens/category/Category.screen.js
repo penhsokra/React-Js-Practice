@@ -75,7 +75,9 @@ function Category(props) {
                   <td style={{ textAlign: 'center' }}>
                     <GREENBUTTON
                       title='UPDATE'
-                      onClick={(e) => navegate('/category-form')}
+                      onClick={(e) =>
+                        navegate('/category-form/' + a.category_id)
+                      }
                     />
                     <REDBUTTON
                       title='DELETE'

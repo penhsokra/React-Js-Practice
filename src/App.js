@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import AuthScreen from './screens/auth/Auth.screen';
 import CategoryForm from './screens/category/Category.form';
@@ -15,7 +15,9 @@ function App() {
         <Route path='/course' element={<Course />} />
         <Route path='/category' element={<Category />} />
         <Route path='/category-form' element={<CategoryForm />} />
-        <Route path='/course-form' element={<CourseForm />} />
+        <Route path='/category-form/:category_id' element={<CategoryForm />} />
+        <Route path='/course-form/' element={<CourseForm />} />
+        <Route path='/course-form/:course_id' element={<CourseForm />} />
       </Route>
       <Route path='/Auth' element={<AuthScreen />} />
       <Route path='*' element={<PageNotFound />} />

@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import service from '../../service/service';
 import LoadingB from '../../compoments/loadings/loadingB/LoadingB';
 import Breadcrumb from '../../compoments/breadcrumb/Breadcrumb';
-import Input from '../../compoments/input/Input';
+import Form from '../../compoments/form/Form';
 function CourseForm() {
+  let param = useParams();
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
   const [data, setData] = useState({
@@ -48,52 +50,57 @@ function CourseForm() {
       }
     });
   };
+  const UpdateCourse = async () => {
+    setLoading(true);
+    await service('PUTH', '/api/course', {
+      course_id: param.course_id,
+    }).then(function (response) {
+      setLoading(false);
+      console.log(response);
+      if (!response.err) {
+        if (response.code !== 'ERR_NETWORK') {
+          alert('Update Succes !');
+        } else {
+          alert('Server Error !');
+        }
+      } else {
+        alert('Update Faild !');
+      }
+    });
+  };
+  var inputdata = [
+    {
+      type: 'text',
+      name: 'name',
+      placeholder: 'name',
+      onChange: (e) => handleValueChanges(e),
+    },
+    {
+      type: 'select',
+      name: 'category_id',
+      onChange: (e) => handleValueChanges(e),
+    },
+    {
+      type: 'number',
+      name: 'full_price',
+      placeholder: 'pirce',
+      onChange: (e) => handleValueChanges(e),
+    },
+  ];
   return (
     <div>
       <LoadingB show={loading} />
       <Breadcrumb stepTitle='COURSE' buttonTitle=' / COURSE FORM' />
-      <Input></Input>
-      <div className='' style={{ padding: 30, border: '1px solid #ddd' }}>
-        <div className='row'>
-          <div className='col-75'>
-            <input
-              type='text'
-              name='name'
-              placeholder='name'
-              onChange={(e) => handleValueChanges(e)}
-            />
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-75'>
-            <select name='category_id' onChange={(e) => handleValueChanges(e)}>
-              <option>Select category</option>
-              {category.map((a, i) => {
-                return (
-                  <option key={i} value={a.category_id}>
-                    {a.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-75'>
-            <input
-              type='text'
-              name='full_price'
-              placeholder='price'
-              onChange={(e) => handleValueChanges(e)}
-            />
-          </div>
-        </div>
-        <div className='row'>
-          <input type='submit' value='Submit' onClick={() => AddCourse()} />
-        </div>
-      </div>
+      <Form
+        style={{ padding: 30, border: '1px solid #ddd' }}
+        InputData={inputdata}
+        buttonTitle={param && param.course_id ? 'UPDATE' : 'ADD NEW'}
+        Category={category}
+        onClick={
+          param && param.course_id ? () => UpdateCourse() : () => AddCourse()
+        }
+      />
     </div>
   );
 }
-
 export default CourseForm;
